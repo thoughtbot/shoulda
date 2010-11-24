@@ -7,6 +7,7 @@ require 'shoulda/macros'
 require 'shoulda/helpers'
 require 'shoulda/autoload_macros'
 require 'shoulda/rails' if defined? RAILS_ROOT
+require 'shoulda/defect_localization_extension'
 
 module Test # :nodoc: all
   module Unit
@@ -16,6 +17,7 @@ module Test # :nodoc: all
       include Shoulda::Assertions
       extend Shoulda::Macros
       include Shoulda::Helpers
+      include Shoulda::DefectLocalizationExtension
     end
   end
 end

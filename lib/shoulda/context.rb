@@ -327,6 +327,7 @@ module Shoulda
       end
 
       if blk
+        blk = add_shoulda_backtrace_for_block(blk)
         self.shoulds << { :name => name, :before => options[:before], :block => blk }
       else
        self.should_eventuallys << { :name => name }
@@ -336,6 +337,7 @@ module Shoulda
     def should_not(matcher)
       name = matcher.description
       blk = lambda { assert_rejects matcher, subject }
+      blk = add_shoulda_backtrace_for_block(blk)
       self.shoulds << { :name => "not #{name}", :block => blk }
     end
 
@@ -435,6 +437,18 @@ module Shoulda
 
     def method_missing(method, *args, &blk)
       test_unit_class.send(method, *args, &blk)
+    end
+
+    private
+    # Adds the backtrace for should method
+    # where the should method is called
+    def add_shoulda_backtrace_for_block(block)
+      backtrace = caller(1)
+
+      lambda do
+        @shoulda_backtrace = backtrace
+        block.bind(self).call
+      end
     end
 
   end
