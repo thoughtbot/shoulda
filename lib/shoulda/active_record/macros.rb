@@ -167,7 +167,7 @@ module Shoulda # :nodoc:
       #   Regexp or string.  Default = <tt>I18n.translate('activerecord.errors.messages.too_long') % range.last</tt>
       #
       # Example:
-      #   should_ensure_length_in_range :password, (6..20)
+      #   should_ensure_length_in :password, (6..20)
       #
       def should_ensure_length_in_range(attribute, range, opts = {})
         ::ActiveSupport::Deprecation.warn("use: should ensure_length_of.is_at_least.is_at_most")
@@ -231,16 +231,16 @@ module Shoulda # :nodoc:
       #   Regexp or string.  Default = <tt>I18n.translate('activerecord.errors.messages.inclusion')</tt>
       #
       # Example:
-      #   should_ensure_value_in_range :age, (0..100)
+      #   should_ensure_value_in :age, (0..100)
       #
       def should_ensure_value_in_range(attribute, range, opts = {})
-        ::ActiveSupport::Deprecation.warn("use: should ensure_inclusion_of.in_range")
+        ::ActiveSupport::Deprecation.warn("use: should ensure_inclusion_of.in")
         message, low_message, high_message = get_options!([opts],
                                                           :message,
                                                           :low_message,
                                                           :high_message)
         should ensure_inclusion_of(attribute).
-          in_range(range).
+          in(range).
           with_message(message).
           with_low_message(low_message).
           with_high_message(high_message)
