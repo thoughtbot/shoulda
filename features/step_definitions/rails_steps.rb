@@ -36,6 +36,11 @@ When /^I configure the application to use shoulda-context$/ do
   steps %{And I run "bundle install --local"}
 end
 
+When /^I configure the application to use shoulda-matchers$/ do
+  append_to_gemfile "gem 'shoulda-matchers', :git => 'git@github.com:thoughtbot/shoulda-matchers.git'"
+  steps %{And I run "bundle install --local"}
+end
+
 When /^I configure a wildcard route$/ do
   steps %{
     When I write to "config/routes.rb" with:

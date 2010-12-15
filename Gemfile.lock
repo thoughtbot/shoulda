@@ -56,8 +56,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mocha (0.9.10)
-      rake
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -86,11 +84,6 @@ GEM
     rspec-expectations (2.3.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.3.0)
-    rspec-rails (2.3.0)
-      actionpack (~> 3.0)
-      activesupport (~> 3.0)
-      railties (~> 3.0)
-      rspec (~> 2.3.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -109,8 +102,7 @@ PLATFORMS
 DEPENDENCIES
   aruba
   cucumber
-  mocha
   rails (= 3.0.3)
-  rspec-rails
+  rspec
   ruby-debug
   sqlite3-ruby
