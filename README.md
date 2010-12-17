@@ -26,7 +26,7 @@ This is what thoughtbot currently does. We write tests like:
 The belong_to and validate_presence_of methods are the matchers.
 All matchers are Rails 3-specific.
 
-Add rspec-rails and shoulda to the project's Gemfile:
+Add rspec-rails and shoulda-matchers to the project's Gemfile:
 
   only :test do
     gem 'rspec-rails'
