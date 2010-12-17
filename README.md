@@ -1,152 +1,84 @@
-Shoulda - Making tests easy on the fingers and eyes
+shoulda
 ===================================================
 
-Shoulda makes it easy to write elegant, understandable, and maintainable tests. Shoulda consists of matchers, test helpers, and assertions. It's fully compatible with your existing tests in Test::Unit or RSpec, and requires no retooling to use.
+The shoulda gem is a meta gem with two dependencies:
 
-* **Matchers** Test::Unit- and RSpec-compatible one-liners that test common Rails functionality.  These tests would otherwise be much longer, more complex, and error-prone.
-* **Helpers** #context and #should give you RSpec like test blocks in Test::Unit.  In addition, you get nested contexts and a much more readable syntax.
-* **Assertions** Many common Rails testing idioms have been distilled into a set of useful assertions.
+* [shoulda-context](https://github.com/thoughtbot/shoulda-context)
+* [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
 
-Usage
------
+Official documentation for each gem:
 
-### ActiveRecord Tests (Shoulda::ActiveRecord::Matchers)
+* [shoulda-context](http://rubydoc.info/github/thoughtbot/shoulda-context/master/frames)
+* [shoulda-matchers](http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames)
 
-Test your ActiveRecord associations and validations with these powerful matchers:
+The following describes different use cases and combinations.
 
-    class PostTest < Test::Unit::TestCase
-      should belong_to(:user)
-      should have_many(:tags).through(:taggings)
+rspec with shoulda-matchers
+---------------------------
 
-      should validate_uniqueness_of(:title)
-      should validate_presence_of(:body).with_message(/wtf/)
-      should validate_presence_of(:title)
-      should validate_numericality_of(:user_id)
-    end
+This is what thoughtbot currently does. We write tests like:
 
-    class UserTest < Test::Unit::TestCase
-      should have_many(:posts)
+  describe Post do
+    it { should belong_to(:user) }
+    it { should validate_presence_of(:title) }
+  end
 
-      should_not allow_value("blah").for(:email)
-      should_not allow_value("b lah").for(:email)
-      should allow_value("a@b.com").for(:email)
-      should allow_value("asdf@asdf.com").for(:email)
-      should ensure_inclusion_of(:email).in_range(1..100)
-      should ensure_inclusion_of(:age).in_range(1..100)
-      should_not allow_mass_assignment_of(:password)
-    end
+The belong_to and validate_presence_of methods are the matchers.
+All matchers are Rails 3-specific.
 
-Makes TDD so much easier.
+Add rspec-rails and shoulda to the project's Gemfile:
 
-### Controller Tests (Shoulda::Controller::Matchers)
+  only :test do
+    gem 'rspec-rails'
+    gem 'shoulda-matchers'
+  end
 
-Matchers to test the most common controller patterns...
+test/unit with shoulda
+----------------------
 
-    class PostsControllerTest < ActionController::TestCase
-      context "on GET to :show for first record" do
-        setup do
-          get :show, :id => 1
-        end
-  
-        should assign_to(:user)
-        should respond_with(:success)
-        should render_template(:show)
-        should_not set_the_flash
-  
-        should "do something else really cool" do
-          assert_equal 1, assigns(:user).id
-        end
+For the folks who prefer Test::Unit, they'd write tests like:
+
+  class UserTest < Test::Unit::TestCase
+    should have_many(:posts)
+    should_not allow_value("blah").for(:email)
+  end
+
+The have_many and allow_value methods are the same kind of matchers
+seen in the RSpec example. They come from the shoulda-matchers gem.
+
+Add shoulda to the project's Gemfile:
+
+  only :test do
+    gem 'shoulda'
+  end
+
+test/unit with shoulda-context
+------------------------------
+
+If you're not testing a Rails project or don't want to use the matchers,
+you can use shoulda-context independently to write tests like:
+
+  class CalculatorTest < Test::Unit::TestCase
+    context "a calculator" do
+      setup do
+        @calculator = Calculator.new
+      end
+
+      should "add two numbers for the sum" do
+        assert_equal 4, @calculator.sum(2, 2)
+      end
+
+      should "multiply two numbers for the product" do
+        assert_equal 10, @calculator.product(2, 5)
       end
     end
+  end
 
-### Context Helpers (Shoulda::Context)
+Add shoulda-context to the project's Gemfile:
 
-Stop killing your fingers with all of those underscores...  Name your tests with plain sentences!
-
-    class UserTest < Test::Unit::TestCase
-      context "A User instance" do
-        setup do
-          @user = User.find(:first)
-        end
-  
-        should "return its full name" do
-          assert_equal 'John Doe', @user.full_name
-        end
-  
-        context "with a profile" do
-          setup do
-            @user.profile = Profile.find(:first)
-          end
-  
-          should "return true when sent #has_profile?" do
-            assert @user.has_profile?
-          end
-        end
-      end
-    end
-
-Produces the following test methods:
-
-    "test: A User instance should return its full name."
-    "test: A User instance with a profile should return true when sent #has_profile?."
-
-So readable!
-
-### Helpful Assertions (Shoulda::Assertions)
-
-More to come here, but have fun with what's there.
-
-    assert_same_elements([:a, :b, :c], [:c, :a, :b])
-    assert_contains(['a', '1'], /\d/)
-    assert_contains(['a', '1'], 'a')
-
-Rails Installation (Test::Unit)
--------------------------------
-
-Specify the gem dependency in your config/environment.rb file:
-
-    Rails::Initializer.run do |config|
-      config.gem "shoulda", :lib => "shoulda"
-    end
-
-Then:
-
-    $ rake gems:install
-    $ rake gems:unpack
-
-Rails Installation (RSpec)
---------------------------
-
-If you're using Shoulda with RSpec, we recommend that you add config.gem lines
-for RSpec and Shoulda in your config/environment/test.rb file, but do not ask
-Rails to load the RSpec and Shoulda libraries:
-
-    config.gem 'rspec',       :lib => false
-    config.gem 'rspec-rails', :lib => false
-    config.gem 'shoulda',     :lib => false
-
-Then require shoulda from your spec/spec_helper.rb file, before Spec::Runner is
-configured:
-
-    # requires for RSpec
-    require 'shoulda'
-    Spec::Runner.configure do |config|
-    # ...
-
-You should not need to require anything besides the top-level shoulda library.
-
-Rails 3 Installation (RSpec)
-----------------------------
-
-With Rails 3 and Bundler, requiring Shoulda is as easy as adding it to your Gemfile:
-
-    group :test do
-      gem "shoulda"
-      gem "rspec-rails", "2.0.0.beta.12"
-    end
-
-Shoulda will automatically include matchers into the appropriate example
-groups.
+  only :test do
+    gem 'shoulda-context'
+  end
 
 Credits
 -------
