@@ -36,6 +36,13 @@ When /^I configure the application to use shoulda-context$/ do
   steps %{And I run "bundle install --local"}
 end
 
+When /^I configure the application to use shoulda$/ do
+  append_to_gemfile "gem 'shoulda-matchers', :git => 'git@github.com:thoughtbot/shoulda-matchers.git', :require => false"
+  append_to_gemfile "gem 'shoulda-context', :git => 'git@github.com:thoughtbot/shoulda-context.git', :require => false"
+  append_to_gemfile "gem 'shoulda', :path => '../../..'"
+  steps %{And I run "bundle install --local"}
+end
+
 When /^I configure the application to use shoulda-matchers$/ do
   append_to_gemfile "gem 'shoulda-matchers', :git => 'git@github.com:thoughtbot/shoulda-matchers.git'"
   steps %{And I run "bundle install --local"}

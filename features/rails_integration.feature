@@ -32,8 +32,7 @@ Feature: integrate with Rails
     When I configure a wildcard route
 
   Scenario: generate a rails application and use matchers in Test::Unit
-    When I configure the application to use shoulda-context
-    When I configure the application to use shoulda-matchers
+    When I configure the application to use shoulda
     And I write to "test/unit/user_test.rb" with:
       """
       require 'test_helper'
