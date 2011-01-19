@@ -80,10 +80,15 @@ GEM
       rspec-core (~> 2.3.0)
       rspec-expectations (~> 2.3.0)
       rspec-mocks (~> 2.3.0)
-    rspec-core (2.3.0)
+    rspec-core (2.3.1)
     rspec-expectations (2.3.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.3.0)
+    rspec-rails (2.3.1)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.3.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -103,6 +108,6 @@ DEPENDENCIES
   aruba
   cucumber
   rails (= 3.0.3)
-  rspec
+  rspec-rails (~> 2.3.1)
   ruby-debug
   sqlite3-ruby
