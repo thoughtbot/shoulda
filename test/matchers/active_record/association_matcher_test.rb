@@ -162,6 +162,22 @@ class AssociationMatcherTest < ActiveSupport::TestCase # :nodoc:
       end
       assert_rejects @matcher.dependent(:destroy), Parent.new
     end
+    
+    should "accept an association with a valid :order option" do
+      define_model :child, :parent_id => :integer
+      define_model :parent do
+        has_many :children, :order => :id
+      end
+      assert_accepts @matcher.order(:id), Parent.new
+    end
+    
+    should "reject an association with a bad :order option" do
+      define_model :child, :parent_id => :integer
+      define_model :parent do
+        has_many :children
+      end
+      assert_rejects @matcher.order(:id), Parent.new
+    end
   end
 
   context "have_one" do
@@ -217,6 +233,22 @@ class AssociationMatcherTest < ActiveSupport::TestCase # :nodoc:
         has_one :detail
       end
       assert_rejects @matcher.dependent(:destroy), Person.new
+    end
+    
+    should "accept an association with a valid :order option" do
+      define_model :detail, :person_id => :integer
+      define_model :person do
+        has_one :detail, :order => :id
+      end
+      assert_accepts @matcher.order(:id), Person.new
+    end
+
+    should "reject an association with a bad :order option" do
+      define_model :detail, :person_id => :integer
+      define_model :person do
+        has_one :detail
+      end
+      assert_rejects @matcher.order(:id), Person.new
     end
   end
 
