@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
   s.summary = %q{Making tests easy on the fingers and eyes}
   s.description = %q{Making tests easy on the fingers and eyes}
 
-  s.add_runtime_dependency(%q<shoulda-context>)
-  s.add_runtime_dependency(%q<shoulda-matchers>)
+  s.add_runtime_dependency(%q<shoulda-context>, "~> 1.0.0.beta1")
+  s.add_runtime_dependency(%q<shoulda-matchers>, "~> 1.0.0.beta1")
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
