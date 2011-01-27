@@ -28,7 +28,7 @@ All matchers are Rails 3-specific.
 
 Add rspec-rails and shoulda-matchers to the project's Gemfile:
 
-    only :test do
+    group :test do
       gem 'rspec-rails'
       gem 'shoulda-matchers'
     end
@@ -48,7 +48,7 @@ seen in the RSpec example. They come from the shoulda-matchers gem.
 
 Add shoulda to the project's Gemfile:
 
-    only :test do
+    group :test do
       gem 'shoulda'
     end
 
@@ -76,7 +76,7 @@ you can use shoulda-context independently to write tests like:
 
 Add shoulda-context to the project's Gemfile:
 
-    only :test do
+    group :test do
       gem 'shoulda-context'
     end
 
