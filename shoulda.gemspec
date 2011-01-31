@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.date = Time.now.strftime("%Y-%m-%d")
   s.email = %q{support@thoughtbot.com}
   s.extra_rdoc_files = ["README.md", "CONTRIBUTION_GUIDELINES.rdoc"]
-  s.files = Dir["[A-Z]*", "{bin,lib,rails,test}/**/*"]
+  s.files = Dir["[A-Z]*", "{lib}/**/*"]
   s.homepage = %q{http://thoughtbot.com/community/}
   s.rdoc_options = ["--line-numbers", "--main", "README.md"]
   s.require_paths = ["lib"]
