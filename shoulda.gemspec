@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = %q{support@thoughtbot.com}
   s.extra_rdoc_files = ["README.md", "CONTRIBUTION_GUIDELINES.rdoc"]
   s.files = Dir["[A-Z]*", "{lib}/**/*"]
-  s.homepage = %q{http://thoughtbot.com/community/}
+  s.homepage = %q{https://github.com/thoughtbot/shoulda}
   s.rdoc_options = ["--line-numbers", "--main", "README.md"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{shoulda}
