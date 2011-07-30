@@ -1,5 +1,4 @@
-shoulda
-===================================================
+# shoulda [![Build Status](http://travis-ci.org/thoughtbot/shoulda.png)](http://travis-ci.org/thoughtbot/shoulda)
 
 The shoulda gem is a meta gem with two dependencies:
 
