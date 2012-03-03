@@ -1,4 +1,4 @@
-# shoulda [![Build Status](http://travis-ci.org/thoughtbot/shoulda.png)](http://travis-ci.org/thoughtbot/shoulda)
+# shoulda [![Build Status](https://secure.travis-ci.org/thoughtbot/shoulda.png)](http://travis-ci.org/thoughtbot/shoulda) [![Dependency Status](https://gemnasium.com/thoughtbot/shoulda.png)](https://gemnasium.com/thoughtbot/shoulda)
 
 The shoulda gem is a meta gem with two dependencies:
 
