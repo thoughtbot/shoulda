@@ -3,49 +3,49 @@ APP_NAME     = 'testapp'.freeze
 
 When /^I generate a new rails application$/ do
   steps %{
-    When I run "rails _3.0.3_ new #{APP_NAME}"
+    When I run `rails _3.0.12_ new #{APP_NAME}`
     And I cd to "#{APP_NAME}"
     And I write to "Gemfile" with:
       """
       source "http://rubygems.org"
-      gem 'rails', '3.0.3'
-      gem 'sqlite3-ruby', :require => 'sqlite3'
+      gem 'rails', '3.0.12'
+      gem 'sqlite3'
       """
-    And I successfully run "bundle install --local"
+    And I successfully run `bundle install --local`
   }
 end
 
 When /^I configure the application to use "([^\"]+)" from this project$/ do |name|
   append_to_gemfile "gem '#{name}', :path => '#{PROJECT_ROOT}'"
-  steps %{And I run "bundle install --local"}
+  steps %{And I run `bundle install --local`}
 end
 
 When /^I run the rspec generator$/ do
   steps %{
-    When I successfully run "rails generate rspec:install"
+    When I successfully run `rails generate rspec:install`
   }
 end
 
 When /^I configure the application to use rspec\-rails$/ do
   append_to_gemfile "gem 'rspec-rails'"
-  steps %{And I run "bundle install --local"}
+  steps %{And I run `bundle install --local`}
 end
 
 When /^I configure the application to use shoulda-context$/ do
   append_to_gemfile "gem 'shoulda-context', :git => 'git@github.com:thoughtbot/shoulda-context.git'"
-  steps %{And I run "bundle install --local"}
+  steps %{And I run `bundle install --local`}
 end
 
 When /^I configure the application to use shoulda$/ do
   append_to_gemfile "gem 'shoulda-matchers', :git => 'git@github.com:thoughtbot/shoulda-matchers.git', :require => false"
   append_to_gemfile "gem 'shoulda-context', :git => 'git@github.com:thoughtbot/shoulda-context.git', :require => false"
   append_to_gemfile "gem 'shoulda', :path => '../../..'"
-  steps %{And I run "bundle install --local"}
+  steps %{And I run `bundle install --local`}
 end
 
 When /^I configure the application to use shoulda-matchers$/ do
   append_to_gemfile "gem 'shoulda-matchers', :git => 'git@github.com:thoughtbot/shoulda-matchers.git'"
-  steps %{And I run "bundle install --local"}
+  steps %{And I run `bundle install --local`}
 end
 
 When /^I configure a wildcard route$/ do
