@@ -32,19 +32,19 @@ When /^I configure the application to use rspec\-rails$/ do
 end
 
 When /^I configure the application to use shoulda-context$/ do
-  append_to_gemfile "gem 'shoulda-context', :git => 'git@github.com:thoughtbot/shoulda-context.git'"
+  append_to_gemfile "gem 'shoulda-context'"
   steps %{And I run `bundle install --local`}
 end
 
 When /^I configure the application to use shoulda$/ do
-  append_to_gemfile "gem 'shoulda-matchers', :git => 'git@github.com:thoughtbot/shoulda-matchers.git', :require => false"
-  append_to_gemfile "gem 'shoulda-context', :git => 'git@github.com:thoughtbot/shoulda-context.git', :require => false"
+  append_to_gemfile "gem 'shoulda-matchers', '~> 1.0.0', :require => false"
+  append_to_gemfile "gem 'shoulda-context', '~> 1.0.0', :require => false"
   append_to_gemfile "gem 'shoulda', :path => '../../..'"
   steps %{And I run `bundle install --local`}
 end
 
 When /^I configure the application to use shoulda-matchers$/ do
-  append_to_gemfile "gem 'shoulda-matchers', :git => 'git@github.com:thoughtbot/shoulda-matchers.git'"
+  append_to_gemfile "gem 'shoulda-matchers', '~> 1.0.0'"
   steps %{And I run `bundle install --local`}
 end
 
