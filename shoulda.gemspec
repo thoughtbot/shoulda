@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_dependency("shoulda-context", "~> 1.0.0")
-  s.add_dependency("shoulda-matchers", "~> 1.0.0")
+  s.add_dependency("shoulda-context", "~> 1.0")
+  s.add_dependency("shoulda-matchers", "~> 1.0")
 
   s.add_development_dependency("rails", "3.0.12")
   s.add_development_dependency("sqlite3", "~> 1.3.2")
