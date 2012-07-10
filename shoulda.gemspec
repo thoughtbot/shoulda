@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency("shoulda-context", "~> 1.0")
   s.add_dependency("shoulda-matchers", "~> 1.0")
 
+  s.add_development_dependency('appraisal',   '~> 0.4.0')
   s.add_development_dependency("rails", "3.0.12")
   s.add_development_dependency("sqlite3", "~> 1.3.2")
   s.add_development_dependency("rspec-rails", "~> 2.7.0")
