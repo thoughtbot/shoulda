@@ -3,7 +3,7 @@ APP_NAME     = 'testapp'.freeze
 
 When /^I generate a new rails application$/ do
   steps %{
-    When I run `rails _3.0.12_ new #{APP_NAME}`
+    When I run `bundle exec rails new #{APP_NAME}`
     And I cd to "#{APP_NAME}"
     And I write to "Gemfile" with:
       """
