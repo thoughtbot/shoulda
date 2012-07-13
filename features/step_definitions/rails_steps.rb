@@ -37,14 +37,14 @@ When /^I configure the application to use shoulda-context$/ do
 end
 
 When /^I configure the application to use shoulda$/ do
-  append_to_gemfile "gem 'shoulda-matchers', '~> 1.0.0', :require => false"
-  append_to_gemfile "gem 'shoulda-context', '~> 1.0.0', :require => false"
+  append_to_gemfile "gem 'shoulda-matchers', '~> 1.0', :require => false"
+  append_to_gemfile "gem 'shoulda-context', '~> 1.0', :require => false"
   append_to_gemfile "gem 'shoulda', :path => '../../..'"
   steps %{And I run `bundle install --local`}
 end
 
 When /^I configure the application to use shoulda-matchers$/ do
-  append_to_gemfile "gem 'shoulda-matchers', '~> 1.0.0'"
+  append_to_gemfile "gem 'shoulda-matchers', '~> 1.0'"
   steps %{And I run `bundle install --local`}
 end
 
