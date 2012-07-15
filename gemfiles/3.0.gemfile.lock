@@ -1,9 +1,9 @@
 PATH
-  remote: /home/mike/thoughtbot/shoulda
+  remote: /Users/jferris/Source/shoulda
   specs:
-    shoulda (3.0.1)
+    shoulda (3.1.0)
       shoulda-context (~> 1.0)
-      shoulda-matchers (~> 1.0)
+      shoulda-matchers (~> 1.2)
 
 GEM
   remote: http://rubygems.org/
