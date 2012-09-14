@@ -93,4 +93,4 @@ The names and logos for thoughtbot are trademarks of thoughtbot, inc.
 License
 -------
 
-Shoulda is Copyright © 2006-2011 Tammer Saleh, thoughtbot. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
+Shoulda is Copyright © 2006-2012 Tammer Saleh, thoughtbot. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
