@@ -1,9 +1,9 @@
 PATH
   remote: /Users/draper/Dropbox/Development/shoulda
   specs:
-    shoulda (3.3.0)
+    shoulda (3.3.1)
       shoulda-context (~> 1.0)
-      shoulda-matchers (~> 1.4)
+      shoulda-matchers (~> 1.4.1)
 
 GEM
   remote: http://rubygems.org/
@@ -119,7 +119,7 @@ GEM
       sass (>= 3.1.10)
       tilt (~> 1.3.2)
     shoulda-context (1.0.0)
-    shoulda-matchers (1.4.0)
+    shoulda-matchers (1.4.1)
       activesupport (>= 3.0.0)
     sprockets (2.0.4)
       hike (~> 1.2)
@@ -129,7 +129,7 @@ GEM
     term-ansicolor (1.0.7)
     thor (0.14.6)
     tilt (1.3.3)
-    treetop (1.4.10)
+    treetop (1.4.11)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.33)
