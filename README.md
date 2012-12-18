@@ -94,7 +94,7 @@ end
 Credits
 -------
 
-![thoughtbot](http://thoughtbot.com/images/tm/logo.png)
+![thoughtbot](http://thoughtbot.com/assets/tm/logo.png)
 
 Shoulda is maintained and funded by [thoughtbot, inc](http://thoughtbot.com/community)
 
