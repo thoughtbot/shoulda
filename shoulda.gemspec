@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = %q{https://github.com/thoughtbot/shoulda}
   s.summary     = %q{Making tests easy on the fingers and eyes}
   s.description = %q{Making tests easy on the fingers and eyes}
+  s.license     = %q{MIT}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
