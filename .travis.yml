@@ -3,3 +3,4 @@ rvm:
   - 1.9.2
 gemfile:
   - gemfiles/3.2.gemfile
+before_install: bundle install
