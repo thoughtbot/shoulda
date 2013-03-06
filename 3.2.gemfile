@@ -5,5 +5,3 @@ source "http://rubygems.org"
 gem "rails", "3.2.3"
 gem "jquery-rails"
 gem "sass-rails"
-
-gemspec :path=>"../"
