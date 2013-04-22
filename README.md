@@ -2,13 +2,8 @@
 
 The shoulda gem is a meta gem with two dependencies:
 
-* [shoulda-context](https://github.com/thoughtbot/shoulda-context)
-* [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
-
-Official documentation for each gem:
-
-* [shoulda-context](http://rubydoc.info/github/thoughtbot/shoulda-context/master/frames)
-* [shoulda-matchers](http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames)
+* [shoulda-context](https://github.com/thoughtbot/shoulda-context) ([official documentation](http://rubydoc.info/github/thoughtbot/shoulda-context/master/frames))
+* [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) ([official documentation](http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames))
 
 The following describes different use cases and combinations.
 
