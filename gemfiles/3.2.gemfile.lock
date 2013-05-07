@@ -1,7 +1,7 @@
 PATH
   remote: /Users/rmcgeary/work/oss/shoulda
   specs:
-    shoulda (3.4.0)
+    shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
       shoulda-matchers (>= 1.4.1, < 3.0)
 
