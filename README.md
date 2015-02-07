@@ -25,7 +25,7 @@ All matchers are Rails 3-specific.
 Add rspec-rails and shoulda-matchers to the project's Gemfile:
 
 ```ruby
-group :test do
+group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
