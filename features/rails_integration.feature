@@ -81,7 +81,7 @@ Feature: integrate with Rails
         it { should assign_to(:example) }
       end
       """
-    When I successfully run `bundle exec rake spec SPEC_OPTS=-fs --trace`
+    When I successfully run `bundle exec rake spec SPEC_OPTS=-fd --trace`
     Then the output should contain "2 examples, 0 failures"
     And the output should contain "should require name to be set"
     And the output should contain "should assign @example"
