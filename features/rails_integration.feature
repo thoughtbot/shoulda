@@ -66,7 +66,7 @@ Feature: integrate with Rails
     And I run the rspec generator
     And I write to "spec/models/user_spec.rb" with:
       """
-      require 'spec_helper'
+      require 'rails_helper'
 
       describe User do
         it { should validate_presence_of(:name) }
@@ -74,7 +74,7 @@ Feature: integrate with Rails
       """
     When I write to "spec/controllers/examples_controller_spec.rb" with:
       """
-      require 'spec_helper'
+      require 'rails_helper'
 
       describe ExamplesController, "show" do
         before { get :show }
