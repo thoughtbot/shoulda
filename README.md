@@ -10,7 +10,7 @@ The following describes different use cases and combinations.
 rspec with shoulda-matchers
 ---------------------------
 
-This is what thoughtbot currently does. We write tests like:
+This is the setup thoughtbot currently uses. We write tests like:
 
 ```ruby
 describe Post do
@@ -19,16 +19,24 @@ describe Post do
 end
 ```
 
-The belong_to and validate_presence_of methods are the matchers.
-All matchers are Rails 3-specific.
+The `belong_to` and `validate_presence_of` methods are the matchers.
+All matchers are compatible with Rails 3 and up.
 
 Add rspec-rails and shoulda-matchers to the project's Gemfile:
 
 ```ruby
 group :test, :development do
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
 end
+```
+
+Then, require shoulda-matchers following rspec-rails in your rails_helper (or
+spec_helper if you're using RSpec 2.x):
+
+```ruby
+require 'rspec/rails'
+require 'shoulda/matchers'
 ```
 
 test/unit with shoulda
@@ -43,7 +51,7 @@ class UserTest < Test::Unit::TestCase
 end
 ```
 
-The have_many and allow_value methods are the same kind of matchers
+The `have_many` and `allow_value` methods are the same kind of matchers
 seen in the RSpec example. They come from the shoulda-matchers gem.
 
 Add shoulda to the project's Gemfile:
