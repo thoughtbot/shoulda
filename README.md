@@ -26,8 +26,8 @@ Add rspec-rails and shoulda-matchers to the project's Gemfile:
 
 ```ruby
 group :test, :development do
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem "rspec-rails"
+  gem "shoulda-matchers"
 end
 ```
 
@@ -37,6 +37,8 @@ test/unit with shoulda
 For the folks who prefer Test::Unit, they'd write tests like:
 
 ```ruby
+require "test/unit"
+
 class UserTest < Test::Unit::TestCase
   should have_many(:posts)
   should_not allow_value("blah").for(:email)
@@ -50,7 +52,7 @@ Add shoulda to the project's Gemfile:
 
 ```ruby
 group :test do
-  gem 'shoulda'
+  gem "shoulda"
 end
 ```
 
@@ -61,6 +63,8 @@ If you're not testing a Rails project or don't want to use the matchers,
 you can use shoulda-context independently to write tests like:
 
 ```ruby
+require "test/unit"
+
 class CalculatorTest < Test::Unit::TestCase
   context "a calculator" do
     setup do
