@@ -1,4 +1,4 @@
-# shoulda [![Gem Version](https://badge.fury.io/rb/shoulda.png)](http://badge.fury.io/rb/shoulda) [![Build Status](https://secure.travis-ci.org/thoughtbot/shoulda.png)](http://travis-ci.org/thoughtbot/shoulda)
+# shoulda [![Gem Version](https://badge.fury.io/rb/shoulda.svg)](http://badge.fury.io/rb/shoulda) [![Build Status](https://secure.travis-ci.org/thoughtbot/shoulda.svg)](http://travis-ci.org/thoughtbot/shoulda)
 
 The shoulda gem is a meta gem with two dependencies:
 
