@@ -1,15 +1,18 @@
-appraise '3.0' do
-  gem 'rails', '3.0.12'
+shared_dependencies = proc do
+  gem 'listen'
+  gem 'sass-rails'
+  gem 'sqlite3'
+  gem 'rspec', '~> 3.0'
+  gem 'shoulda-context'
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
-appraise '3.1' do
-  gem 'rails', '3.1.4'
-  gem 'jquery-rails'
-  gem 'sass-rails'
+appraise '4.2' do
+  instance_eval(&shared_dependencies)
+  gem 'rails', git: 'https://github.com/rails/rails.git', branch: '4-2-stable'
 end
 
-appraise '3.2' do
-  gem 'rails', '3.2.3'
-  gem 'jquery-rails'
-  gem 'sass-rails'
+appraise '5.0' do
+  instance_eval(&shared_dependencies)
+  gem 'rails', '5.0.1'
 end
