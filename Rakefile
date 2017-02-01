@@ -1,26 +1,25 @@
 require 'bundler/setup'
 require 'bundler/gem_tasks'
-require 'cucumber/rake/task'
+require 'rspec/core/rake_task'
 require 'appraisal'
+require_relative 'spec/support/tests/current_bundle'
 
-def appraisal_in_use?
-  Bundler.default_gemfile.dirname ==
-    Pathname.new('../gemfiles').expand_path(__FILE__)
+RSpec::Core::RakeTask.new('spec:acceptance') do |t|
+  t.ruby_opts = '-w -r ./spec/report_warnings'
+  t.pattern = "spec/acceptance/**/*_spec.rb"
+  t.rspec_opts = '--color --format progress'
+  t.verbose = false
 end
 
-Cucumber::Rake::Task.new do |t|
-  t.fork = true
-  t.cucumber_opts = ['--format', (ENV['CUCUMBER_FORMAT'] || 'progress')]
-end
-
-desc 'Test the plugin under all supported Rails versions.'
-task :all do
-  if appraisal_in_use?
-    exec 'bundle exec rake cucumber --trace'
+task :default do
+  if Tests::CurrentBundle.instance.appraisal_in_use?
+    sh 'rake spec:acceptance --trace'
   else
-    exec 'bundle exec appraisal install && appraisal rake --trace'
+    if ENV['CI']
+      exec "appraisal install && appraisal rake --trace"
+    else
+      appraisal = Tests::CurrentBundle.instance.latest_appraisal
+      exec "appraisal install && appraisal #{appraisal} rake --trace"
+    end
   end
 end
-
-desc 'Default: run cucumber features'
-task :default => [:all]
