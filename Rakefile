@@ -1,19 +1,20 @@
-require 'bundler/setup'
-require 'bundler/gem_tasks'
-require 'rspec/core/rake_task'
 require 'appraisal'
-require_relative 'spec/support/tests/current_bundle'
+require 'bundler/gem_tasks'
+require 'bundler/setup'
+require 'rake/testtask'
+require_relative 'test/support/tests/current_bundle'
 
-RSpec::Core::RakeTask.new('spec:acceptance') do |t|
-  t.ruby_opts = '-w -r ./spec/report_warnings'
-  t.pattern = "spec/acceptance/**/*_spec.rb"
-  t.rspec_opts = '--color --format progress'
+Rake::TestTask.new('test:acceptance') do |t|
+  t.libs << 'test'
+  # t.ruby_opts += ['-w', '-r', './test/report_warnings']
+  t.ruby_opts += ['-w']
+  t.pattern = 'test/acceptance/**/*_test.rb'
   t.verbose = false
 end
 
 task :default do
   if Tests::CurrentBundle.instance.appraisal_in_use?
-    sh 'rake spec:acceptance --trace'
+    sh 'rake test:acceptance --trace'
   else
     if ENV['CI']
       exec "appraisal install && appraisal rake --trace"

@@ -6,8 +6,6 @@ module AcceptanceTests
     include FileHelpers
     include GemHelpers
 
-    extend RSpec::Matchers::DSL
-
     def add_shoulda_to_project(options = {})
       AddShouldaToProject.call(options)
     end
@@ -23,16 +21,6 @@ module AcceptanceTests
       FILE
     end
 
-    def add_shoulda_context_to_project(options = {})
-      add_gem 'shoulda-context'
-
-      if options[:manually]
-        append_to_file 'test/test_helper.rb', <<-FILE
-          require 'shoulda/context'
-        FILE
-      end
-    end
-
     def run_n_unit_tests(*paths)
       run_command_within_bundle 'ruby -I lib -I test', *paths
     end
@@ -43,13 +31,24 @@ module AcceptanceTests
 
     def create_rails_application
       fs.clean
+      rails_new
+      remove_unnecessary_gems
+      add_minitest_reporters_to_test_helper
+    end
 
+    private
+
+    def rails_new
       command = "bundle exec rails new #{fs.project_directory} --skip-bundle --no-rc"
 
       run_command!(command) do |runner|
         runner.directory = nil
       end
 
+      command
+    end
+
+    def remove_unnecessary_gems
       updating_bundle do |bundle|
         bundle.remove_gem 'turn'
         bundle.remove_gem 'coffee-rails'
@@ -58,6 +57,13 @@ module AcceptanceTests
         bundle.remove_gem 'byebug'
         bundle.remove_gem 'web-console'
       end
+    end
+
+    def add_minitest_reporters_to_test_helper
+      fs.append_to_file 'test/test_helper.rb', <<-TEXT
+require 'minitest/reporters'
+Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new)
+      TEXT
     end
   end
 end

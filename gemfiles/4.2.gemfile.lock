@@ -65,6 +65,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    ansi (1.5.0)
     appraisal (2.1.0)
       bundler
       rake
@@ -86,6 +87,9 @@ GEM
       ruby_dep (~> 1.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
+    m (1.5.0)
+      method_source (>= 0.6.7)
+      rake (>= 0.9.2.2)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
@@ -94,6 +98,11 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    minitest-reporters (1.1.14)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     pry-byebug (3.4.2)
@@ -127,6 +136,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -158,6 +168,9 @@ PLATFORMS
 DEPENDENCIES
   appraisal (~> 2.1)
   listen
+  m
+  minitest (~> 5.0)
+  minitest-reporters (~> 1.0)
   pry!
   pry-byebug
   rails!

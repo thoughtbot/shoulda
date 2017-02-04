@@ -1,7 +1,7 @@
-require 'acceptance_spec_helper'
+require 'acceptance_test_helper'
 
-describe 'Shoulda integrates with Rails' do
-  before do
+class ShouldaIntegratesWithRailsTest < AcceptanceTest
+  def test_works_in_a_project_that_uses_minitest
     create_rails_application
 
     write_file 'db/migrate/1_create_users.rb', <<-FILE
@@ -14,7 +14,7 @@ describe 'Shoulda integrates with Rails' do
       end
     FILE
 
-    run_rake_tasks!(["db:drop", "db:create", "db:migrate"])
+    run_rake_tasks!(['db:drop', 'db:create', 'db:migrate'])
 
     write_file 'app/models/user.rb', <<-FILE
       class User < ActiveRecord::Base
@@ -36,25 +36,14 @@ describe 'Shoulda integrates with Rails' do
         resources :examples, only: [:index]
       end
     FILE
-  end
 
-  specify 'in a project that uses Minitest' do
     updating_bundle do
-      add_gems_for_n_unit
       add_shoulda_to_project(
         test_frameworks: [:minitest],
         libraries: [:rails],
       )
     end
 
-    run_tests_for_n_unit
-  end
-
-  def add_gems_for_n_unit
-    add_gem 'shoulda-context'
-  end
-
-  def run_tests_for_n_unit
     write_file 'test/unit/user_test.rb', <<-FILE
       require 'test_helper'
 
@@ -77,10 +66,11 @@ describe 'Shoulda integrates with Rails' do
 
     result = run_n_unit_test_suite
 
-    expect(result).to indicate_that_tests_were_run(unit: 1, functional: 1)
-    expect(result).to have_output(
-      'User should validate that :name cannot be empty/falsy',
+    assert_accepts indicate_that_tests_were_run(unit: 1, functional: 1), result
+    assert_accepts(
+      have_output('User should validate that :name cannot be empty/falsy'),
+      result,
     )
-    expect(result).to have_output('should respond with 200')
+    assert_accepts have_output('should respond with 200'), result
   end
 end

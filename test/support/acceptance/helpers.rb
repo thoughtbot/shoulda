@@ -6,18 +6,14 @@ require_relative 'helpers/step_helpers'
 
 module AcceptanceTests
   module Helpers
-    def self.configure_example_group(example_group)
-      example_group.include(self)
-
-      example_group.before do
-        fs.clean
-      end
-    end
-
     include ActiveModelHelpers
     include BaseHelpers
     include CommandHelpers
     include GemHelpers
     include StepHelpers
+
+    def setup
+      fs.clean
+    end
   end
 end

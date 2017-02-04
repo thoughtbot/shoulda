@@ -4,7 +4,6 @@ require_relative '../../tests/command_runner'
 module AcceptanceTests
   module CommandHelpers
     include BaseHelpers
-    extend RSpec::Matchers::DSL
 
     def run_command(*args)
       Tests::CommandRunner.run(*args) do |runner|
