@@ -11,64 +11,84 @@ module AcceptanceTests
       include ArrayHelpers
       include PluralizationHelpers
 
-      def initialize(args)
-        @args = args
-        @series = args.values
+      def initialize(expected_numbers)
+        @expected_numbers = expected_numbers
       end
 
       def matches?(runner)
         @runner = runner
-        !matching_expected_output.nil?
+        Set.new(expected_numbers).subset?(Set.new(actual_numbers))
       end
 
       def failure_message
         "Expected output to indicate that #{some_tests_were_run}.\n" +
-          "#{formatted_expected_output}\n" +
-          "#{formatted_actual_output}\n"
+          "#{formatted_expected_numbers}\n" +
+          "#{formatted_actual_numbers}\n\n" +
+          "Output:\n\n" +
+          actual_output
       end
 
       protected
 
-      attr_reader :args, :series, :runner
+      attr_reader :expected_numbers, :runner
 
       private
 
-      def matching_expected_output
-        @_matching_expected_output ||=
-          actual_output =~ expected_output
-      end
-
-      def expected_output
-        total = series.inject(:+)
-        /#{total} (tests|runs), #{total} assertions, 0 failures, 0 errors(, 0 skips)?/
-      end
-
-      def formatted_expected_output
-        if matching_expected_output
-          "Expected output:\n#{matching_actual_output}"
+      def some_tests_were_run
+        if some_tests_were_run_clauses.size > 1
+          "#{to_sentence(some_tests_were_run_clauses)} were run"
         else
-          'Expected output: (n/a)'
+          "#{some_tests_were_run_clauses} was run"
         end
+      end
+
+      def some_tests_were_run_clauses
+        expected_numbers.map do |type, number|
+          if number == 1
+            "#{number} #{type.to_s.chop}"
+          else
+            "#{number} #{type}"
+          end
+        end
+      end
+
+      def formatted_expected_numbers
+        "Expected numbers: #{format_hash(expected_numbers)}"
+      end
+
+      def formatted_actual_numbers
+        "Actual numbers: #{find_report_line_in(actual_output).inspect}"
+      end
+
+      def actual_numbers
+        parse(actual_output, [:tests, :assertions, :failures, :errors, :skips])
       end
 
       def actual_output
         runner.output
       end
 
-      def formatted_actual_output
-        if actual_output.empty?
-          'Actual output: (empty)'
-        else
-          "Actual output:\n#{actual_output}"
+      def parse(text, pieces)
+        report_line = find_report_line_in(text)
+
+        pieces.inject({}) do |hash, piece|
+          number = report_line.match(/(\d+) #{piece}/)[1].to_i
+          hash.merge(piece => number)
         end
       end
 
-      def some_tests_were_run
-        clauses = args.map do |type, number|
-          pluralize(number, "#{type} test was run", "#{type} tests were run")
+      def find_report_line_in(text)
+        lines = text.split(/\n/)
+
+        index_of_line_with_time = lines.find_index do |line|
+          line =~ /\AFinished in \d\.\d+s\Z/
         end
 
-        to_sentence(clauses)
+        lines[index_of_line_with_time + 1]
+      end
+
+      def format_hash(hash)
+        '{' + hash.map { |k, v| "#{k}: #{v.inspect}" }.join(', ') + '}'
       end
     end
   end

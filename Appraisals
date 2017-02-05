@@ -3,8 +3,10 @@ shared_dependencies = proc do
   gem 'sass-rails'
   gem 'sqlite3'
   gem 'rspec', '~> 3.0'
-  gem 'shoulda-context'
+  gem 'shoulda-context', path: '../shoulda-context'
   gem 'shoulda-matchers', '~> 3.0'
+  gem 'rails-controller-testing'
+  gem 'jquery-rails'
 end
 
 appraise '4.2' do

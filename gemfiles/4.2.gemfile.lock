@@ -62,6 +62,11 @@ GIT
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
 
+PATH
+  remote: ../../shoulda-context
+  specs:
+    shoulda-context (1.2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -81,6 +86,10 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.0)
+    jquery-rails (4.2.2)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -111,6 +120,8 @@ GEM
     rack (1.6.5)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rails-controller-testing (0.0.3)
+      rails (>= 4.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.8)
@@ -145,7 +156,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    shoulda-context (1.2.2)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     sprockets (3.7.1)
@@ -167,6 +177,7 @@ PLATFORMS
 
 DEPENDENCIES
   appraisal (~> 2.1)
+  jquery-rails
   listen
   m
   minitest (~> 5.0)
@@ -174,9 +185,10 @@ DEPENDENCIES
   pry!
   pry-byebug
   rails!
+  rails-controller-testing
   rspec (~> 3.0)
   sass-rails
-  shoulda-context
+  shoulda-context!
   shoulda-matchers (~> 3.0)
   sqlite3
 
