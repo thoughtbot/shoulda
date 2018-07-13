@@ -9,7 +9,7 @@ end
 
 appraise '4.2' do
   instance_eval(&shared_dependencies)
-  gem 'rails', git: 'https://github.com/rails/rails.git', branch: '4-2-stable'
+  gem 'rails', '4.2.10'
 end
 
 appraise '5.0' do
