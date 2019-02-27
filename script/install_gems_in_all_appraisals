@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SUPPORTED_VERSIONS=$(script/supported_ruby_versions)
+
+install-gems-for-version() {
+  local version="$1"
+  (export RBENV_VERSION=$version; bundle && bundle exec appraisal install)
+}
+
+for version in $SUPPORTED_VERSIONS; do
+  echo
+  echo "*** Installing gems for $version ***"
+  install-gems-for-version $version
+done

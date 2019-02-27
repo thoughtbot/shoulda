@@ -1,32 +1,27 @@
-require_relative 'helpers/base_helpers'
-require_relative 'helpers/gem_helpers'
-
 module AcceptanceTests
   class AddShouldaToProject
-    def self.call(options)
-      new(options).call
+    ROOT_DIRECTORY = Pathname.new('../../..').expand_path(__FILE__)
+
+    def self.call(app, options)
+      new(app, options).call
     end
 
-    include BaseHelpers
-    include GemHelpers
-
-    def initialize(options)
+    def initialize(app, options)
+      @app = app
       @options = options
     end
 
     def call
-      add_gem 'shoulda', gem_options
+      app.add_gem 'shoulda', gem_options
 
       unless options[:with_configuration] === false
         add_configuration_block_to_test_helper
       end
     end
 
-    protected
-
-    attr_reader :options
-
     private
+
+    attr_reader :app, :options
 
     def test_framework
       options[:test_framework]
@@ -37,7 +32,7 @@ module AcceptanceTests
     end
 
     def gem_options
-      gem_options = { path: fs.root_directory }
+      gem_options = { path: ROOT_DIRECTORY }
 
       if options[:manually]
         gem_options[:require] = false
@@ -47,20 +42,20 @@ module AcceptanceTests
     end
 
     def add_configuration_block_to_test_helper
-      content = <<-EOT
+      content = <<-CONTENT
         Shoulda::Matchers.configure do |config|
           config.integrate do |with|
             #{test_framework_config}
             #{library_config}
           end
         end
-      EOT
+      CONTENT
 
       if options[:manually]
         content = "require 'shoulda'\n#{content}"
       end
 
-      fs.append_to_file('test/test_helper.rb', content)
+      app.append_to_file('test/test_helper.rb', content)
     end
 
     def test_framework_config

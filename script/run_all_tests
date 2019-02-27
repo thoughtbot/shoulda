@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SUPPORTED_VERSIONS=$(script/supported_ruby_versions)
+
+run-tests-for-version() {
+  local version="$1"
+  (export RBENV_VERSION=$version; bundle exec rake)
+}
+
+for version in $SUPPORTED_VERSIONS; do
+  echo
+  echo "*** Running tests for $version ***"
+  run-tests-for-version $version
+done

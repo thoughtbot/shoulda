@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
+gemspec
+
 gem 'appraisal', '~> 2.1'
-gem 'rails', '>= 4.2', '< 6'
-gem 'pry'
-gem 'pry-byebug'
-gem 'sqlite3', '~> 1.3.11'
+gem 'bundler', '~> 1.0'
+gem 'm'
 gem 'minitest', '~> 5.0'
 gem 'minitest-reporters', '~> 1.0'
-gem 'm'
+gem 'pry-byebug'
+gem 'rubocop'
+gem 'snowglobe'
+gem 'warnings_logger'
