@@ -16,3 +16,10 @@ appraise '5.0' do
   instance_eval(&shared_dependencies)
   gem 'rails', '5.0.1'
 end
+
+appraise '6.0' do
+  instance_eval(&shared_dependencies)
+  gem 'rails', '6.0'
+  gem 'bootsnap'
+  gem 'shoulda-matchers', '~> 4.1'
+end

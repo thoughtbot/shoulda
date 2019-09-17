@@ -36,6 +36,20 @@ module AcceptanceTests
       add_minitest_reporters_to_test_helper
     end
 
+    def active_record_migration
+      current_or_latest_appraisal = Tests::CurrentBundle.instance.current_or_latest_appraisal
+      case current_or_latest_appraisal
+      when '6.0'
+        <<-FILE
+          ActiveRecord::Migration[6.0]
+        FILE
+      else
+        <<-FILE
+          ActiveRecord::Migration
+        FILE
+      end
+    end
+
     private
 
     def rails_new

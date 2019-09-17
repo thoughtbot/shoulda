@@ -5,7 +5,7 @@ class ShouldaIntegratesWithRailsTest < AcceptanceTest
     create_rails_application
 
     write_file 'db/migrate/1_create_users.rb', <<-FILE
-      class CreateUsers < ActiveRecord::Migration
+      class CreateUsers < #{active_record_migration}
         def self.up
           create_table :users do |t|
             t.string :name
@@ -26,7 +26,7 @@ class ShouldaIntegratesWithRailsTest < AcceptanceTest
       class ExamplesController < ApplicationController
         def index
           @example = 'hello'
-          render nothing: true
+          head :ok
         end
       end
     FILE
