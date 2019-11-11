@@ -11,13 +11,8 @@ module AcceptanceTests
     end
 
     def add_minitest_to_project
-      add_gem 'minitest-reporters'
-
       append_to_file 'test/test_helper.rb', <<-FILE
         require 'minitest/autorun'
-        require 'minitest/reporters'
-
-        Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new)
       FILE
     end
 
@@ -33,7 +28,6 @@ module AcceptanceTests
       fs.clean
       rails_new
       remove_unnecessary_gems
-      add_minitest_reporters_to_test_helper
     end
 
     private
@@ -57,13 +51,6 @@ module AcceptanceTests
         bundle.remove_gem 'byebug'
         bundle.remove_gem 'web-console'
       end
-    end
-
-    def add_minitest_reporters_to_test_helper
-      fs.append_to_file 'test/test_helper.rb', <<-TEXT
-require 'minitest/reporters'
-Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new)
-      TEXT
     end
   end
 end

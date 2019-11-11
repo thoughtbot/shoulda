@@ -4,10 +4,7 @@ $LOAD_PATH << File.join(PROJECT_ROOT, 'lib')
 require 'pry'
 require 'pry-byebug'
 require 'minitest/autorun'
-require 'minitest/reporters'
 require 'shoulda'
-
-Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new)
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
