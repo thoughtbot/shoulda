@@ -71,11 +71,6 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
-    minitest-reporters (1.1.14)
-      ansi
-      builder
-      minitest (>= 5.0)
-      ruby-progressbar
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -165,7 +160,6 @@ DEPENDENCIES
   listen
   m
   minitest (~> 5.0)
-  minitest-reporters (~> 1.0)
   pry
   pry-byebug
   rails (= 5.0.1)

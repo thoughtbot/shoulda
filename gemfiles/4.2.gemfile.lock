@@ -69,11 +69,6 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.1)
-    minitest-reporters (1.1.14)
-      ansi
-      builder
-      minitest (>= 5.0)
-      ruby-progressbar
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     pry (0.11.0)
@@ -160,7 +155,6 @@ DEPENDENCIES
   listen
   m
   minitest (~> 5.0)
-  minitest-reporters (~> 1.0)
   pry
   pry-byebug
   rails (= 4.2.10)
