@@ -89,7 +89,9 @@ appraise 'rails_5_2' do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-if Gem::Requirement.new('>= 2.5.0').satisfied_by?(Gem::Version.new(RUBY_VERSION))
+if (
+  Gem::Requirement.new('>= 2.5.0').satisfied_by?(Gem::Version.new(RUBY_VERSION))
+)
   appraise 'rails_6_0' do
     instance_eval(&shared_dependencies)
 

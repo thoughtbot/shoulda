@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
     'Joe Ferris',
     'Ryan McGeary',
     'Dan Croak',
-    'Matt Jankowski'
+    'Matt Jankowski',
   ]
   s.email = 'support@thoughtbot.com'
   s.homepage = 'https://github.com/thoughtbot/shoulda'

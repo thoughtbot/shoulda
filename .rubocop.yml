@@ -1,11 +1,13 @@
 AllCops:
   TargetRubyVersion: 2.4
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 Layout/ConditionPosition:
   Enabled: false
 Layout/DotPosition:
   EnforcedStyle: trailing
+Layout/HeredocIndentation:
+  Enabled: false
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 Lint/AmbiguousOperator:
@@ -18,9 +20,7 @@ Lint/DeprecatedClassMethods:
   Enabled: false
 Lint/ElseLayout:
   Enabled: false
-Lint/HandleExceptions:
-  Enabled: false
-Lint/IndentHeredoc:
+Lint/SuppressedException:
   Enabled: false
 Lint/LiteralInInterpolation:
   Enabled: false
@@ -102,7 +102,7 @@ Style/Encoding:
   Enabled: false
 Style/EvenOdd:
   Enabled: false
-Style/FlipFlop:
+Lint/FlipFlop:
   Enabled: false
 Style/FormatString:
   Enabled: false
@@ -144,6 +144,8 @@ Style/NumericPredicate:
   Enabled: false
 Style/OneLineConditional:
   Enabled: false
+Style/ParenthesesAroundCondition:
+  Enabled: false
 Style/PercentLiteralDelimiters:
   Enabled: false
 Style/PerlBackrefs:
@@ -153,6 +155,8 @@ Style/PreferredHashMethods:
 Style/Proc:
   Enabled: false
 Style/RaiseArgs:
+  Enabled: false
+Style/RedundantParentheses:
   Enabled: false
 Style/RegexpLiteral:
   Enabled: false

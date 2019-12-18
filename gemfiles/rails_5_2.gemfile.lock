@@ -115,6 +115,8 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    mry (0.77.0.2)
+      rubocop (>= 0.41.0)
     msgpack (1.2.6)
     multi_json (1.13.1)
     nio4r (2.3.1)
@@ -245,6 +247,7 @@ DEPENDENCIES
   m
   minitest (~> 5.0)
   minitest-reporters
+  mry
   pry-byebug
   puma (~> 3.11)
   rails (~> 5.2.2)

@@ -99,6 +99,8 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    mry (0.77.0.2)
+      rubocop (>= 0.41.0)
     multi_json (1.13.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
@@ -218,6 +220,7 @@ DEPENDENCIES
   m
   minitest (~> 5.0)
   minitest-reporters
+  mry
   protected_attributes (~> 1.0.6)
   pry-byebug
   rails (~> 4.2.10)

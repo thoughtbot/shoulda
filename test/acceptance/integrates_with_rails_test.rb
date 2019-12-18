@@ -1,6 +1,7 @@
 require 'acceptance_test_helper'
 
 class ShouldaIntegratesWithRailsTest < AcceptanceTest
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def setup
     app.create
 
@@ -575,4 +576,5 @@ class ShouldaIntegratesWithRailsTest < AcceptanceTest
 
     assert_accepts indicate_that_tests_were_run(failures: 26), result
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 end
