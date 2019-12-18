@@ -74,21 +74,22 @@ Shoulda follows Semantic Versioning 2.0 as defined at <http://semver.org>.
 
 ## License
 
-Shoulda is copyright © 2006-2019 [thoughtbot, inc][thoughtbot]. It is free
-software, and may be redistributed under the terms specified in the
-[MIT-LICENSE](MIT-LICENSE) file.
+Shoulda is copyright © 2006-2019 thoughtbot, inc. It is free software, and may
+be redistributed under the terms specified in the [MIT-LICENSE](MIT-LICENSE)
+file.
 
 ## About thoughtbot
 
 ![thoughtbot][thoughtbot-logo]
 
-[thoughtbot-logo]: https://presskit.thoughtbot.com/images/thoughtbot-logo-for-readmes.svg
+[thoughtbot-logo]: https://thoughtbot.com/brand_assets/93:44.svg
 
 Shoulda is maintained and funded by thoughtbot, inc. The names and logos for
 thoughtbot are trademarks of thoughtbot, inc.
 
-We are passionate about open source software. See [our other
-projects][community]. We are [available for hire][thoughtbot].
+We love open source software! See [our other projects][community] or [hire
+us][hire] to design, develop, and grow your product.
 
 [community]: https://thoughtbot.com/community?utm_source=github
+[hire]: https://thoughtbot.com/hire-us?utm_source=github
 [thoughtbot]: https://thoughtbot.com?utm_source=github
