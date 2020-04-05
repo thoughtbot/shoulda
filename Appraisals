@@ -22,7 +22,7 @@ shared_dependencies = proc do
   instance_eval(&shared_spring_dependencies)
   instance_eval(&shared_test_dependencies)
 
-  gem 'shoulda-context', '2.0.0.rc2'
+  gem 'shoulda-context', '2.0.0.rc4'
   gem 'shoulda-matchers', '~> 4.0'
 end
 
