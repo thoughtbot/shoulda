@@ -4,7 +4,8 @@
 # can compare them more easily.
 
 shared_rails_dependencies = proc do
-  gem 'sqlite3', platform: :ruby
+  gem 'sqlite3', '~> 1.3.6'
+  gem 'rubyzip', '~> 1.3.0'
 end
 
 shared_spring_dependencies = proc do
@@ -20,6 +21,9 @@ shared_dependencies = proc do
   instance_eval(&shared_rails_dependencies)
   instance_eval(&shared_spring_dependencies)
   instance_eval(&shared_test_dependencies)
+
+  gem 'shoulda-context', '2.0.0.rc2'
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 appraise 'rails_4_2' do
@@ -89,9 +93,7 @@ appraise 'rails_5_2' do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-if (
-  Gem::Requirement.new('>= 2.5.0').satisfied_by?(Gem::Version.new(RUBY_VERSION))
-)
+if Gem::Requirement.new('>= 2.5.0').satisfied_by?(Gem::Version.new(RUBY_VERSION))
   appraise 'rails_6_0' do
     instance_eval(&shared_dependencies)
 
