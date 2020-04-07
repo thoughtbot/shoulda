@@ -21,9 +21,6 @@ shared_dependencies = proc do
   instance_eval(&shared_rails_dependencies)
   instance_eval(&shared_spring_dependencies)
   instance_eval(&shared_test_dependencies)
-
-  gem 'shoulda-context', '2.0.0.rc4'
-  gem 'shoulda-matchers', '~> 4.0'
 end
 
 appraise 'rails_4_2' do
@@ -109,6 +106,7 @@ if Gem::Requirement.new('>= 2.5.0').satisfied_by?(Gem::Version.new(RUBY_VERSION)
     gem 'spring-watcher-listen', '~> 2.0.0'
     gem 'capybara', '>= 2.15'
     gem 'selenium-webdriver'
+    gem "sqlite3", "~> 1.4.0"
     gem 'webdrivers'
 
     # Other dependencies

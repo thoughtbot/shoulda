@@ -14,7 +14,7 @@ gem "rubocop", "0.71.0", require: false
 gem "rubocop-rails", require: false
 gem "snowglobe", ">= 0.3.0"
 gem "warnings_logger"
-gem "sqlite3", platform: :ruby
+gem "sqlite3", "~> 1.4.0"
 gem "rubyzip", "~> 1.3.0"
 gem "spring"
 gem "spring-commands-rspec"

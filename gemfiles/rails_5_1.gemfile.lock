@@ -1,3 +1,10 @@
+PATH
+  remote: ..
+  specs:
+    shoulda (4.0.0.rc1)
+      shoulda-context (= 2.0.0.rc4)
+      shoulda-matchers (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -227,6 +234,7 @@ DEPENDENCIES
   rubyzip (~> 1.3.0)
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda!
   shoulda-context (= 2.0.0.rc4)
   shoulda-matchers (~> 4.0)
   snowglobe (>= 0.3.0)

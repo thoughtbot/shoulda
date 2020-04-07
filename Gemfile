@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gemspec
+
 gem 'appraisal', '~> 2.1'
 gem 'bundler', '~> 1.0'
 gem 'm'
