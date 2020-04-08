@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    shoulda (4.0.0.rc1)
+    shoulda (4.0.0.rc2)
       shoulda-context (= 2.0.0.rc4)
       shoulda-matchers (~> 4.0)
 
@@ -175,7 +175,7 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     shoulda-context (2.0.0.rc4)
-    shoulda-matchers (4.1.2)
+    shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
     snowglobe (0.3.0)
     spring (2.1.0)
@@ -228,8 +228,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shoulda!
-  shoulda-context (= 2.0.0.rc4)
-  shoulda-matchers (~> 4.0)
   snowglobe (>= 0.3.0)
   spring
   spring-commands-rspec
