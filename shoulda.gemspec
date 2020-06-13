@@ -25,6 +25,6 @@ Gem::Specification.new do |s|
   end
   s.require_paths = ['lib']
 
-  s.add_dependency('shoulda-context', '2.0.0.rc4')
+  s.add_dependency('shoulda-context', '~> 2.0')
   s.add_dependency('shoulda-matchers', '~> 4.0')
 end

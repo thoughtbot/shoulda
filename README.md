@@ -9,7 +9,13 @@
 [hound]: https://houndci.com
 
 Shoulda helps you write more understandable, maintainable Rails-specific tests
-under Minitest.
+under Minitest and Test::Unit.
+
+## Quick links
+
+📢 **[See what's changed in recent versions.][changelog]**
+
+[changelog]: CHANGELOG.md
 
 ## Overview
 
@@ -54,8 +60,8 @@ See the READMEs for these projects for more information.
 
 ## Compatibility
 
-Shoulda Matchers is [tested][travis] and supported against Ruby 2.4+, Rails 5.x,
-Rails 4.2.x, RSpec 3.x, and Minitest 5.x.
+Shoulda Matchers is [tested][travis] and supported against Ruby 2.4+, Rails
+4.2.x+, RSpec 3.x, and Minitest 5.x.
 
 ## Contributing
 
