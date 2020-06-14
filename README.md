@@ -19,8 +19,8 @@ under Minitest and Test::Unit.
 
 ## Overview
 
-As a meta gem, the `shoulda` gem doesn't contain any code of its own but rather
-brings in behavior from two other gems:
+As an umbrella gem, the `shoulda` gem doesn't contain any code of its own but
+rather brings in behavior from two other gems:
 
 * [Shoulda Context]
 * [Shoulda Matchers]
@@ -60,42 +60,39 @@ See the READMEs for these projects for more information.
 
 ## Compatibility
 
-Shoulda Matchers is [tested][travis] and supported against Ruby 2.4+, Rails
-4.2.x+, RSpec 3.x, and Minitest 5.x.
-
-## Contributing
-
-Shoulda is open source, and we are grateful for [everyone][contributors] who's
-contributed so far.
-
-[contributors]: https://github.com/thoughtbot/shoulda/contributors
-
-If you'd like to contribute, please take a look at the
-[instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
-pull request.
+Shoulda is [tested][travis] and supported against Ruby 2.4+, Rails 4.2+, RSpec
+3.x, Minitest 4.x, and Test::Unit 3.x.
 
 ## Versioning
 
 Shoulda follows Semantic Versioning 2.0 as defined at <http://semver.org>.
 
-## License
+## Team
 
-Shoulda is copyright © 2006-2019 thoughtbot, inc. It is free software, and may
-be redistributed under the terms specified in the [MIT-LICENSE](MIT-LICENSE)
-file.
+Shoulda is maintained by [Elliot Winkler][mcmire]. It was previously maintained
+by [Travis Jeffery][travisjeffery].
+
+[mcmire]: https://github.com/mcmire
+[travisjeffery]: https://github.com/travisjeffery
+
+## Copyright/License
+
+Shoulda is copyright © 2006-2020 Tammer Saleh and [thoughtbot,
+inc][thoughtbot-website]. It is free and opensource software and may be
+redistributed under the terms specified in the [LICENSE](LICENSE) file.
+
+[thoughtbot-website]: https://thoughtbot.com
 
 ## About thoughtbot
 
 ![thoughtbot][thoughtbot-logo]
 
-[thoughtbot-logo]: https://thoughtbot.com/brand_assets/93:44.svg
+[thoughtbot-logo]: https://presskit.thoughtbot.com/images/thoughtbot-logo-for-readmes.svg
 
-Shoulda is maintained and funded by thoughtbot, inc. The names and logos for
-thoughtbot are trademarks of thoughtbot, inc.
+The names and logos for thoughtbot are trademarks of thoughtbot, inc.
 
-We love open source software! See [our other projects][community] or [hire
-us][hire] to design, develop, and grow your product.
+We are passionate about open source software. See [our other
+projects][community]. We are [available for hire][hire].
 
 [community]: https://thoughtbot.com/community?utm_source=github
-[hire]: https://thoughtbot.com/hire-us?utm_source=github
-[thoughtbot]: https://thoughtbot.com?utm_source=github
+[hire]: https://thoughtbot.com?utm_source=github
