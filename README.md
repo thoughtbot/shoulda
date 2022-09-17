@@ -77,7 +77,7 @@ by [Travis Jeffery][travisjeffery].
 
 ## Copyright/License
 
-Shoulda is copyright © 2006-2020 Tammer Saleh and [thoughtbot,
+Shoulda is copyright © 2006-2023 Tammer Saleh and [thoughtbot,
 inc][thoughtbot-website]. It is free and opensource software and may be
 redistributed under the terms specified in the [LICENSE](LICENSE) file.
 
