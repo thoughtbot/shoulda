@@ -1,12 +1,12 @@
-# Shoulda [![Gem Version][version-badge]][rubygems] [![Build Status][travis-badge]][travis] ![Downloads][downloads-badge] [![Hound][hound-badge]][hound]
+# Shoulda [![Gem Version][version-badge]][rubygems] [![Build Status][github-actions-badge]][github-actions] [![Total Downloads][downloads-total]][rubygems] [![Downloads][downloads-badge]][rubygems]
 
-[version-badge]: http://img.shields.io/gem/v/shoulda.svg
-[rubygems]: http://rubygems.org/gems/shoulda
-[travis-badge]: http://img.shields.io/travis/thoughtbot/shoulda/master.svg
-[travis]: http://travis-ci.org/thoughtbot/shoulda
-[downloads-badge]: http://img.shields.io/gem/dtv/shoulda.svg
-[hound-badge]: https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg
-[hound]: https://houndci.com
+[version-badge]: https://img.shields.io/gem/v/shoulda.svg
+[rubygems]: https://rubygems.org/gems/shoulda
+[github-actions-badge]: https://img.shields.io/github/actions/workflow/status/thoughtbot/shoulda/ci.yml?branch=main
+[github-actions]: https://github.com/thoughtbot/shoulda/actions
+[downloads-total]: https://img.shields.io/gem/dt/shoulda.svg
+[downloads-badge]: https://img.shields.io/gem/dtv/shoulda.svg
+[downloads-badge]: https://img.shields.io/gem/dtv/shoulda.svg
 
 Shoulda helps you write more understandable, maintainable Rails-specific tests
 under Minitest and Test::Unit.
@@ -60,8 +60,12 @@ See the READMEs for these projects for more information.
 
 ## Compatibility
 
-Shoulda is [tested][travis] and supported against Ruby 2.4+, Rails 4.2+, RSpec
-3.x, Minitest 4.x, and Test::Unit 3.x.
+Shoulda is tested and supported against Ruby 3.0+, Rails 6.1+, RSpec 3.x,
+Minitest 4.x, and Test::Unit 3.x.
+
+- For Ruby < 3 and Rails < 6.1 compatibility, please use [v4.0.0][v4.0.0].
+
+[v4.0.0]: https://github.com/thoughtbot/shoulda-matchers/tree/v4.0.0
 
 ## Versioning
 
@@ -87,7 +91,7 @@ redistributed under the terms specified in the [LICENSE](LICENSE) file.
 
 ![thoughtbot][thoughtbot-logo]
 
-[thoughtbot-logo]: https://presskit.thoughtbot.com/images/thoughtbot-logo-for-readmes.svg
+[thoughtbot-logo]: https://thoughtbot.com/brand_assets/93:44.svg
 
 The names and logos for thoughtbot are trademarks of thoughtbot, inc.
 
