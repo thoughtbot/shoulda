@@ -1,15 +1,48 @@
+require:
+  - rubocop-packaging
 AllCops:
-  TargetRubyVersion: 2.4
-Layout/ParameterAlignment:
+  NewCops: disable
+  TargetRubyVersion: 3.0
+  Exclude:
+    - 'gemfiles/*'
+    - 'tmp/**/*'
+  SuggestExtensions: false
+Bundler/OrderedGems:
+  Include:
+    - '**/Gemfile'
+Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
+Layout/CommentIndentation:
+  Enabled: false
 Layout/ConditionPosition:
   Enabled: false
 Layout/DotPosition:
   EnforcedStyle: trailing
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
 Layout/HeredocIndentation:
   Enabled: false
+Layout/LineLength:
+  Exclude:
+    - spec/**/*
+  AllowedPatterns:
+    - !ruby/regexp /\A +(it|describe|context|shared_examples|include_examples|it_behaves_like) ["']/
+    - !ruby/regexp /\A(require|require_relative) ["']/
+    - '^[ ]*#.+$'
+    - '^[ ]*''.+?'' => ''.+?'',?$'
+    - '^[ ]*".+?" => ".+?",?$'
+  Max: 100
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
 Lint/AmbiguousOperator:
   Enabled: false
 Lint/AmbiguousRegexpLiteral:
@@ -20,53 +53,61 @@ Lint/DeprecatedClassMethods:
   Enabled: false
 Lint/ElseLayout:
   Enabled: false
-Lint/SuppressedException:
+Lint/FlipFlop:
   Enabled: false
 Lint/LiteralInInterpolation:
   Enabled: false
 Lint/Loop:
   Enabled: false
+Lint/MissingSuper:
+  Enabled: false
 Lint/ParenthesesAsGroupedExpression:
   Enabled: false
 Lint/RequireParentheses:
+  Enabled: false
+Lint/SafeNavigationChain:
+  Enabled: false
+Lint/SuppressedException:
   Enabled: false
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 Lint/Void:
   Enabled: false
+Metrics/AbcSize:
+  Enabled: false
 Metrics/BlockLength:
   Enabled: false
 Metrics/ClassLength:
   Enabled: false
-Metrics/LineLength:
-  IgnoredPatterns:
-    - "^[ ]*describe.+$"
-    - "^[ ]*context.+$"
-    - "^[ ]*shared_context.+$"
-    - "^[ ]*shared_examples_for.+$"
-    - "^[ ]*it.+$"
-    - "^[ ]*'.+?' => '.+?',?$"
-    - "^[ ]*\".+?\" => \".+?\",?$"
-    - "^[ ]*.+?: .+?$"
+Metrics/CyclomaticComplexity:
+  Enabled: false
 Metrics/MethodLength:
   Max: 30
+Metrics/ModuleLength:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+Metrics/PerceivedComplexity:
+  Enabled: false
 Naming/AccessorMethodName:
   Enabled: false
 Naming/AsciiIdentifiers:
   Enabled: false
 Naming/BinaryOperatorParameterName:
   Enabled: false
-Style/ClassVars:
-  Enabled: false
-Style/ColonMethodCall:
-  Enabled: false
 Naming/FileName:
   Enabled: false
-Rails:
-  Enabled: true
-Rails/Delegate:
+Naming/HeredocDelimiterNaming:
   Enabled: false
-Rails/HttpPositionalArguments:
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
+Naming/PredicateName:
+  Enabled: false
+Naming/VariableNumber:
+  Enabled: false
+Naming/RescuedExceptionsVariableName:
   Enabled: false
 Style/Alias:
   Enabled: false
@@ -76,18 +117,25 @@ Style/AsciiComments:
   Enabled: false
 Style/Attr:
   Enabled: false
+Style/BlockDelimiters:
+  Enabled: false
 Style/CaseEquality:
   Enabled: false
 Style/CharacterLiteral:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Style/ClassVars:
+  Enabled: false
 Style/CollectionMethods:
+  Enabled: true
   PreferredMethods:
-    find: detect
-    reduce: inject
     collect: map
+    find: detect
     find_all: select
+    reduce: inject
+Style/ColonMethodCall:
+  Enabled: false
 Style/CommentAnnotation:
   Enabled: false
 Style/Documentation:
@@ -96,16 +144,20 @@ Style/DoubleNegation:
   Enabled: false
 Style/EachWithObject:
   Enabled: false
+Style/EmptyElse:
+  Enabled: false
 Style/EmptyLiteral:
   Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 Style/Encoding:
   Enabled: false
 Style/EvenOdd:
   Enabled: false
-Lint/FlipFlop:
-  Enabled: false
 Style/FormatString:
   Enabled: false
+Style/FormatStringToken:
+  EnforcedStyle: template
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/GlobalVars:
@@ -117,6 +169,8 @@ Style/IfUnlessModifier:
 Style/IfWithSemicolon:
   Enabled: false
 Style/InlineComment:
+  Enabled: false
+Style/InverseMethods:
   Enabled: false
 Style/Lambda:
   Enabled: false
@@ -144,6 +198,8 @@ Style/NumericPredicate:
   Enabled: false
 Style/OneLineConditional:
   Enabled: false
+Style/OptionalBooleanParameter:
+  Enabled: false
 Style/ParenthesesAroundCondition:
   Enabled: false
 Style/PercentLiteralDelimiters:
@@ -155,8 +211,6 @@ Style/PreferredHashMethods:
 Style/Proc:
   Enabled: false
 Style/RaiseArgs:
-  Enabled: false
-Style/RedundantParentheses:
   Enabled: false
 Style/RegexpLiteral:
   Enabled: false
@@ -182,11 +236,11 @@ Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
 Style/TrivialAccessors:
   Enabled: false
+Style/VariableInterpolation:
+  Enabled: false
 Style/WhenThen:
   Enabled: false
 Style/WhileUntilModifier:
   Enabled: false
 Style/WordArray:
-  Enabled: false
-Style/VariableInterpolation:
   Enabled: false

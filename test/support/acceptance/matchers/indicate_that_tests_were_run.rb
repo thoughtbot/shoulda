@@ -21,11 +21,13 @@ module AcceptanceTests
       end
 
       def failure_message
-        "Expected output to indicate that #{some_tests_were_run}.\n" +
-          "#{formatted_expected_numbers}\n" +
-          "#{formatted_actual_numbers}\n\n" +
-          "Output:\n\n" +
-          actual_output
+        [
+          "Expected output to indicate that #{some_tests_were_run}.\n",
+          "#{formatted_expected_numbers}\n",
+          "#{formatted_actual_numbers}\n\n",
+          "Output:\n\n",
+          actual_output,
+        ].join
       end
 
       protected
@@ -102,7 +104,7 @@ module AcceptanceTests
       end
 
       def format_hash(hash)
-        '{' + hash.map { |k, v| "#{k}: #{v.inspect}" }.join(', ') + '}'
+        ['{', hash.map { |k, v| "#{k}: #{v.inspect}" }.join(', '), '}'].join
       end
     end
   end

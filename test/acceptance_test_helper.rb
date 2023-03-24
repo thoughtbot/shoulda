@@ -16,7 +16,7 @@ class AcceptanceTest < Minitest::Test
   private
 
   def app
-    @app ||= AcceptanceTests::RailsApplicationWithShoulda.new
+    @_app ||= AcceptanceTests::RailsApplicationWithShoulda.new
   end
 end
 

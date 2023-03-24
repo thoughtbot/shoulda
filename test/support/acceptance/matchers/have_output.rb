@@ -1,6 +1,5 @@
 module AcceptanceTests
   module Matchers
-    # rubocop:disable Naming/PredicateName
     def have_output(output)
       HaveOutputMatcher.new(output)
     end
@@ -17,12 +16,15 @@ module AcceptanceTests
       end
 
       def failure_message
-        "Expected command to have output, but did not.\n\n" +
-          "Command: #{runner.formatted_command}\n\n" +
-          "Expected output:\n" +
-          output.inspect + "\n\n" +
-          "Actual output:\n" +
-          runner.output
+        [
+          "Expected command to have output, but did not.\n\n",
+          "Command: #{runner.formatted_command}\n\n",
+          "Expected output:\n",
+          output.inspect,
+          "\n\n",
+          "Actual output:\n",
+          runner.output,
+        ].join
       end
 
       protected

@@ -1,7 +1,7 @@
 require 'acceptance_test_helper'
 
 class ShouldaIntegratesWithRailsTest < AcceptanceTest
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength
   def setup
     app.create
 
@@ -310,7 +310,7 @@ class ShouldaIntegratesWithRailsTest < AcceptanceTest
           should_not use_around_action(:some_other_around_action)
 
           # This is one of the defaults for Rails
-          should filter_param(:password)
+          should filter_param(:passw)
           should_not filter_param(:some_other_param)
 
           should rescue_from(ActiveRecord::RecordNotFound).
@@ -333,21 +333,12 @@ class ShouldaIntegratesWithRailsTest < AcceptanceTest
 
         context "POST #create" do
           setup do
-            if ActionPack::VERSION::STRING.start_with?("4.")
-              post :create, {
-                user: {
-                  email: "some@email.com",
-                  password: "somepassword"
-                }
+            post :create, params: {
+              user: {
+                email: "some@email.com",
+                password: "somepassword"
               }
-            else
-              post :create, params: {
-                user: {
-                  email: "some@email.com",
-                  password: "somepassword"
-                }
-              }
-            end
+            }
           end
 
           should permit(:email, :password).
@@ -503,7 +494,7 @@ class ShouldaIntegratesWithRailsTest < AcceptanceTest
           should_not use_around_action(:some_around_action)
           should use_around_action(:some_other_around_action)
 
-          should_not filter_param(:password)
+          should_not filter_param(:passw)
           should filter_param(:some_other_param)
 
           should_not rescue_from(ActiveRecord::RecordNotFound).
