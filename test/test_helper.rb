@@ -1,11 +1,10 @@
-require 'bundler/setup'
 require 'pry'
 require 'pry-byebug'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'warnings_logger'
 
-require_relative '../lib/shoulda'
+require 'shoulda'
 
 Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new)
 

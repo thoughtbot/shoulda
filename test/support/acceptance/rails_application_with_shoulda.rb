@@ -13,6 +13,8 @@ module AcceptanceTests
           test_framework: :minitest,
           libraries: [:rails],
         )
+        bundle.add_gem 'rails-controller-testing', group: [:test]
+        bundle.add_gem 'bcrypt'
       end
 
       fs.append_to_file 'test/test_helper.rb', <<-FILE

@@ -1,6 +1,6 @@
 module AcceptanceTests
   class AddShouldaToProject
-    ROOT_DIRECTORY = Pathname.new('../../..').expand_path(__FILE__)
+    ROOT_DIRECTORY = Pathname.new('../../..').expand_path(__dir__)
 
     def self.call(app, options)
       new(app, options).call
