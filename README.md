@@ -73,11 +73,19 @@ Shoulda follows Semantic Versioning 2.0 as defined at <http://semver.org>.
 
 ## Team
 
-Shoulda is maintained by [Elliot Winkler][mcmire]. It was previously maintained
-by [Travis Jeffery][travisjeffery].
+Shoulda is currently maintained by [Pedro Paiva][VSPPedro]. Previous maintainers
+include [Elliot Winkler][mcmire], [Jason Draper][drapergeek], [Gabe
+Berke-Williams][gabebw], [Ryan McGeary][rmm5t], [Joe Ferris][jferris], [Dan
+Croaky][croaky], and [Tammer Saleh][tammersaleh].
 
+[VSPPedro]: https://github.com/VSPPedro
 [mcmire]: https://github.com/mcmire
-[travisjeffery]: https://github.com/travisjeffery
+[drapergeek]: https://github.com/drapergeek
+[gabebw]: https://github.com/gabebw
+[rmm5t]: https://github.com/rmm5t
+[jferris]: https://github.com/jferris
+[croaky]: https://github.com/croaky
+[tammersaleh]: https://github.com/tammersaleh
 
 ## Copyright/License
 
