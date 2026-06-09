@@ -123,12 +123,20 @@ class ShouldaIntegratesWithRailsTest < AcceptanceTest
         # defined in the test (see below)
 
         belongs_to :city
-        enum status: { inactive: 0, active: 1 }
+        if Rails::VERSION::MAJOR >= 7
+          enum :status, { inactive: 0, active: 1 }
+        else
+          enum status: { inactive: 0, active: 1 }
+        end
         attr_readonly :username
         has_and_belongs_to_many :categories
         has_many :issues
         has_one :life
-        serialize :aspects
+        if Rails::VERSION::MAJOR > 7 || (Rails::VERSION::MAJOR == 7 && Rails::VERSION::MINOR >= 1)
+          serialize :aspects, coder: YAML
+        else
+          serialize :aspects
+        end
         validates_uniqueness_of :email
         accepts_nested_attributes_for :issues
       end
@@ -149,7 +157,6 @@ class ShouldaIntegratesWithRailsTest < AcceptanceTest
 
         def index
           render :index
-          head :ok
         end
 
         def create

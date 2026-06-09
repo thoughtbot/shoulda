@@ -37,7 +37,7 @@ module AcceptanceTests
                 result.method(result.name).source_location
               end
 
-              "\#{executable} \#{relative_path_for(location)}:\#{line}"
+              "\#{self.class.executable} \#{relative_path_for(location)}:\#{line}"
             end
           end
         rescue LoadError

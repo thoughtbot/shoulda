@@ -45,7 +45,7 @@ appraise 'rails_7_0' do
   instance_eval(&shared_spring_dependencies)
   instance_eval(&controller_test_dependency)
 
-  gem 'rails', '7.0.4.2'
+  gem 'rails', '7.0.10'
   gem 'sprockets-rails'
   gem 'puma', '~> 5.0'
   gem 'importmap-rails'
@@ -66,5 +66,39 @@ appraise 'rails_7_0' do
 
   # Database adapters
   gem 'sqlite3', '~> 1.4'
+  gem 'pg', '~> 1.1'
+end
+
+appraise 'rails_8_1' do
+  instance_eval(&controller_test_dependency)
+
+  gem 'rails', '8.1.3'
+  gem 'propshaft'
+  gem 'puma', '>= 5.0'
+  gem 'importmap-rails'
+  gem 'turbo-rails'
+  gem 'stimulus-rails'
+  gem 'jbuilder'
+  gem 'solid_cache'
+  gem 'solid_queue'
+  gem 'solid_cable'
+  gem 'bootsnap', require: false
+  gem 'kamal', require: false
+  gem 'thruster', require: false
+  gem 'image_processing', '~> 1.2'
+  gem 'debug', require: false
+  gem 'bundler-audit', require: false
+  gem 'brakeman', require: false
+  gem 'rubocop-rails-omakase', require: false
+  gem 'web-console'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+
+  # test dependencies
+  gem 'rspec-rails', '>= 6.0'
+  gem 'shoulda-context', '~> 2.0.0'
+
+  # Database adapters
+  gem 'sqlite3', '>= 2.1'
   gem 'pg', '~> 1.1'
 end
