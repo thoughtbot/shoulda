@@ -93,6 +93,7 @@ appraise 'rails_8_1' do
   gem 'web-console'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'bcrypt', '~> 3.1.7'
 
   # test dependencies
   gem 'rspec-rails', '>= 6.0'

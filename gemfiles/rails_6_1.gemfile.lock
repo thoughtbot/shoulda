@@ -8,7 +8,7 @@ GIT
 PATH
   remote: ..
   specs:
-    shoulda (4.0.0)
+    shoulda (5.0.0.rc1)
       shoulda-context (~> 2.0)
       shoulda-matchers (~> 5.0)
 
@@ -145,7 +145,7 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
-    nio4r (2.5.8)
+    nio4r (2.7.5)
     nokogiri (1.14.2-arm64-darwin)
       racc (~> 1.4)
     parallel (1.22.1)
@@ -299,6 +299,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  arm64-darwin-25
 
 DEPENDENCIES
   appraisal

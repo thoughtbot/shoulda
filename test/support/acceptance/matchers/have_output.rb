@@ -3,7 +3,6 @@ module AcceptanceTests
     def have_output(output)
       HaveOutputMatcher.new(output)
     end
-    # rubocop:enable Naming/PredicateName
 
     class HaveOutputMatcher
       def initialize(output)
